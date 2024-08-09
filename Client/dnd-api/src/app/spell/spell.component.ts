@@ -10,18 +10,14 @@ import { SpellDetailComponent } from '../spell-detail/spell-detail.component';
   templateUrl: './spell.component.html',
   styleUrls: ['./spell.component.css']
 })
-export class SpellComponent implements OnChanges {
+export class SpellComponent {
   @Input() spell: any;
   showDetails: boolean = false;
   spellDetails: any;
 
   constructor(private apiService: ApiService) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['spell'] && this.showDetails) {
-      this.fetchSpellDetails();
-    }
-  }
+
 
   toggleDetails() {
     this.showDetails = !this.showDetails;

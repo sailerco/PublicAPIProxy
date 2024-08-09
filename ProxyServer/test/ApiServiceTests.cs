@@ -27,7 +27,7 @@ public class ApiServiceTests
         _mockHandler.SetupRequest(HttpMethod.Get, "https://www.dnd5eapi.co/api/magic-schools")
                     .ReturnsResponse(responseContent);
 
-        var result = await _apiService.getMagicSchools();
+        var result = await _apiService.GetData("magic-schools");
 
         Assert.NotNull(result);
         Assert.Contains("abjuration", result);

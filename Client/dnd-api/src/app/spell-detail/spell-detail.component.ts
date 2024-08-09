@@ -1,6 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
+
+/**
+ * The `SpellDetailComponent` is responsible for displaying detailed information about a spell.
+ * It receives a spell object as input from its parent component and renders the details
+ * in its template.
+ */
+
 @Component({
   selector: 'app-spell-detail',
   standalone: true,
@@ -9,5 +16,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./spell-detail.component.css']
 })
 export class SpellDetailComponent {
-  @Input() spell: any;
+  //The spell property is passed down from a parent component.
+  @Input() spell: any; 
 }
