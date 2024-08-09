@@ -15,10 +15,13 @@ export class SpellComponent {
   showDetails: boolean = false;
   spellDetails: any;
 
-  constructor(private apiService: ApiService) {}
-
-
-
+  constructor(private apiService: ApiService) { }
+  
+  /**
+   * Toggles the visibility of the spell details.
+   * If details are to be shown, it triggers the fetch of detailed spell information from the API.
+   * This method is called when the user interacts with the spell component.
+   */
   toggleDetails() {
     this.showDetails = !this.showDetails;
     if (this.showDetails) {
@@ -26,6 +29,10 @@ export class SpellComponent {
     }
   }
 
+  /**
+ * Fetches detailed information about the spell from the backend.
+ * The fetched data is stored in the `spellDetails` property.
+ */
   fetchSpellDetails() {
     if (this.spell) {
       this.apiService.getSpellDetails(this.spell.index).subscribe(response => {
