@@ -1,0 +1,9 @@
+<div class="spell" (click)="toggleDetails()">
+    <div class="spell-header">
+    <h3>{{ spell.name }}</h3>
+    <p>Lvl: {{ spell.level }}</p>
+    </div>
+    <div *ngIf="showDetails">
+      <app-spell-detail [spell]="spellDetails"></app-spell-detail>
+    </div>
+  </div>

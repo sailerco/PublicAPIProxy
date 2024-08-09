@@ -1,0 +1,37 @@
+<div id="generate">
+  <p>You can search spells by class, level and magic school!</p>
+  <form (ngSubmit)="submitForm()">
+    <div class="formElement">
+      <label for="magicSchool">Magic School</label>
+      <select id="magicSchool" [(ngModel)]="selectedSchool" name="magicSchool">
+        <option *ngFor="let school of magicSchools" [value]="school.index">{{ school.name }}</option>
+      </select>
+    </div>
+
+    <div class="formElement">
+      <label for="spellLevel">Spell Level</label>
+      <select id="spellLevel" [(ngModel)]="selectedLevel" name="spellLevel">
+        <option value="">All Levels</option>
+        <option *ngFor="let level of spellLevels" [value]="level">{{ level }}</option>
+      </select>
+    </div>
+
+    <div class="formElement">
+      <label for="class">Class</label>
+      <select id="class" [(ngModel)]="selectedClass" name="class">
+        <option *ngFor="let class of classes" [value]="class.index">{{ class.name }}</option>
+      </select>
+    </div>
+
+    <button type="submit">Send</button>
+  </form>
+  <div *ngIf="spells.length">
+    <h2>Spells</h2>
+    <div *ngFor="let spell of spells">
+      <app-spell [spell]="spell"></app-spell>
+    </div>
+  </div>
+  <div id="noResult" *ngIf="noSpellFound">
+    No results 
+  </div>
+</div>

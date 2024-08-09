@@ -1,0 +1,32 @@
+.spell {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.spell:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spell-header{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.spell-header h3 {
+  margin: 0 0 10px;
+}
+
+.spell-header p {
+  border: 1px solid #66A5AD;
+  background-color: #66A5AD;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 0 0 10px;
+}

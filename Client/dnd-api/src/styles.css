@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #FFFFFF;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1{
+    background-color: #66A5AD;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

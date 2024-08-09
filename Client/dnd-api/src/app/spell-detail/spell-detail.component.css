@@ -1,0 +1,47 @@
+.spell-detail {
+  padding: 15px 0px;
+  flex: 1;
+}
+.casting-details {
+  width: 100%;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: space-between;
+}
+
+
+.material {
+  color: gray;
+  font-size: x-small;
+  font-style: italic;
+}
+
+h4 {
+  margin: 0 0 0px;
+}
+
+p {
+  margin: 10px 0;
+}
+.description, .higher_level{
+  text-wrap: pretty;
+}
+
+@media (max-width: 1200px) {
+  .casting-details {
+      justify-content: space-around;
+  }
+}
+
+@media (max-width: 768px) {
+  .casting-details {
+      flex-flow: row wrap; /* Stack items vertically on small screens */
+      justify-content: space-evenly;
+    }
+  div.casting-details span{
+    flex: 1 0 21%;
+    margin: 5px;
+  }
+}

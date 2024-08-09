@@ -1,0 +1,30 @@
+<div class="spell-detail ">
+    <div class="casting-details">
+        <div *ngIf=spell.range>
+            <h4>Range</h4>
+            <p>{{spell.range}}</p>
+        </div>
+        <div *ngIf=spell.components>
+            <h4>Components</h4>
+            <p>{{spell.components}}</p>
+        </div>
+        <div *ngIf=spell.school>
+            <h4>School</h4>
+            <p>{{spell.school.name}}</p>
+        </div>
+        <div *ngIf=spell.casting_time>
+            <h4>Casting Time</h4>
+            <p>{{spell.casting_time}}</p>
+        </div>
+    </div>
+    <hr>
+    <p class="description">{{ spell.desc }}</p>
+
+    <p class="higher_level" *ngIf=spell.higher_level>
+        {{spell.higher_level}} 
+    </p>
+
+    <p class="material" *ngIf=spell.material>
+        Material: {{spell.material}}
+    </p>
+</div>
