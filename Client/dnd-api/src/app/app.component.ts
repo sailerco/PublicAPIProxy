@@ -43,10 +43,6 @@ export class AppComponent {
       this.magicSchools = this.buildDropdownOptions(response.results, 'All Magic Schools');
     });
 
-    this.apiService.getMagicSchools().subscribe(response => {
-      this.magicSchools = this.buildDropdownOptions(response.results, 'All Magic Schools');
-    });
-
     this.apiService.getClasses().subscribe(response => {
       this.classes = this.buildDropdownOptions(response.results, 'All Classes');
     });

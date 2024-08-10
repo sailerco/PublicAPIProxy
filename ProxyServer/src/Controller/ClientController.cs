@@ -47,19 +47,19 @@ namespace ProxyServer.Controller
             string? spells;
             if (!string.IsNullOrEmpty(classType) && string.IsNullOrEmpty(magicSchool) && !level.HasValue)
             {
-                spells = await _apiService.getSpellListByClass(classType);
+                spells = await _apiService.GetSpellListByClass(classType);
                 return Ok(spells);
             }
             else if (string.IsNullOrEmpty(classType))
             {
-                spells = await _apiService.getSpellList(magicSchool, level);
+                spells = await _apiService.GetSpellList(magicSchool, level);
                 return Ok(spells);
             }
             else
             {
-                var spellsByClass = await _apiService.getSpellListByClass(classType);
-                var spellsBySchool = await _apiService.getSpellList(magicSchool, level);
-                spells = _apiService.Compare(spellsByClass, spellsBySchool);
+                var spellsByClass = await _apiService.GetSpellListByClass(classType);
+                var spellsBySchool = await _apiService.GetSpellList(magicSchool, level);
+                spells = _apiService.IntersectJSONSpellLists(spellsByClass, spellsBySchool);
                 return Ok(spells);
             }
         }

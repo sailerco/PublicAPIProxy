@@ -32,7 +32,7 @@ public class ApiService
     /// <summary> Retrieves a list of spells for a specific class from the API. </summary>
     /// <param name="classType">The class type for which to retrieve spells, e.g., "wizard" or "cleric".</param>
     /// <returns>A task result which contains the list of spells as a JSON string.</returns>
-    public async Task<string> getSpellListByClass(string classType)
+    public async Task<string> GetSpellListByClass(string classType)
     {
         var query = $"classes/{classType}/spells";
         var response = await _httpClient.GetStringAsync($"{baseURL}/{query}");
@@ -43,7 +43,7 @@ public class ApiService
     /// <param name="school">The school of magic to filter spells by, e.g., "evocation" or "illusion".</param>
     /// <param name="level">The spell level to filter by, or null to include all levels.</param>
     /// <returns>A task result which contains the list of spells as a JSON string.</returns>
-    public async Task<string> getSpellList(string school, int? level)
+    public async Task<string> GetSpellList(string school, int? level)
     {
         var query = "spells?";
         query += !string.IsNullOrEmpty(school) ? $"school={school}&" : "";
@@ -56,7 +56,7 @@ public class ApiService
     /// <param name="spellsByClass">A string representing the list of spells by class.</param>
     /// <param name="spellsBySchool">A string representing the list of spells by school.</param>
     /// <returns>A JSON string representing the list of spells that appear in both provided lists.</returns>
-    public string Compare(string spellsByClass, string spellsBySchool)
+    public string IntersectJSONSpellLists(string spellsByClass, string spellsBySchool)
     {
         var spellListClass = JsonConvert.DeserializeObject<SpellList>(spellsByClass);
         var spellListSchool = JsonConvert.DeserializeObject<SpellList>(spellsBySchool);

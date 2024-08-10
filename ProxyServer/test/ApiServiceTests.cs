@@ -31,14 +31,25 @@ public class ApiServiceTests
 
         Assert.NotNull(result);
         Assert.Contains("abjuration", result);
+        
     }
 
     [Fact]
-    public void CompareJSONTest()
+    public void IntersectJSONTest()
     {
-        string byClass = @"{""count"":2,""results"":[{""index"":""druidcraft"",""name"":""Druidcraft"",""level"":0,""url"":""/api/spells/druidcraft""},{""index"":""guidance"",""name"":""Guidance"",""level"":0,""url"":""/api/spells/guidance""}]}";
-        string bySchool = @"{""count"":1,""results"":[{""index"":""druidcraft"",""name"":""Druidcraft"",""level"":0,""url"":""/api/spells/druidcraft""}]}";
-        var overlap = _apiService.Compare(byClass, bySchool);
-        Assert.Equal(bySchool, overlap);
+        string spellsByClass = @"{""count"":2,""results"":[{""index"":""druidcraft"",""name"":""Druidcraft"",""level"":0,""url"":""/api/spells/druidcraft""},{""index"":""guidance"",""name"":""Guidance"",""level"":0,""url"":""/api/spells/guidance""}]}";
+        string spellsBySchool = @"{""count"":1,""results"":[{""index"":""druidcraft"",""name"":""Druidcraft"",""level"":0,""url"":""/api/spells/druidcraft""}]}";
+        var overlap = _apiService.IntersectJSONSpellLists(spellsByClass, spellsBySchool);
+        Assert.Equal(spellsBySchool, overlap);
+    }
+
+    [Fact]
+    public void NoIntersectJSONTest()
+    {
+        string spellsByClass = @"{""count"":2,""results"":[{""index"":""acid-arrow"",""name"":""Acid Arrow"",""level"":2,""url"":""/api/spells/acid-arrow""},{""index"":""guidance"",""name"":""Guidance"",""level"":0,""url"":""/api/spells/guidance""}]}";
+        string spellsBySchool = @"{""count"":1,""results"":[{""index"":""druidcraft"",""name"":""Druidcraft"",""level"":0,""url"":""/api/spells/druidcraft""}]}";
+        string expected = @"{""count"":0,""results"":[]}";
+        var overlap = _apiService.IntersectJSONSpellLists(spellsByClass, spellsBySchool);
+        Assert.Equal(expected, overlap);
     }
 }
