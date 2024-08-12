@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { ApiService } from '../api.service';
 import { CommonModule } from '@angular/common';
 import { SpellDetailComponent } from '../spell-detail/spell-detail.component';
+import { DndResource, SpellDetailsResponse } from '../api-response';
 
 @Component({
   selector: 'app-spell',
@@ -11,12 +12,12 @@ import { SpellDetailComponent } from '../spell-detail/spell-detail.component';
   styleUrls: ['./spell.component.css']
 })
 export class SpellComponent {
-  @Input() spell: any;
+  @Input() spell: DndResource | undefined;
   showDetails: boolean = false;
-  spellDetails: any;
+  spellDetails: SpellDetailsResponse | undefined;
 
   constructor(private apiService: ApiService) { }
-  
+
   /**
    * Toggles the visibility of the spell details.
    * If details are to be shown, it triggers the fetch of detailed spell information from the API.

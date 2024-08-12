@@ -1,4 +1,4 @@
-<div class="spell" (click)="toggleDetails()">
+<div *ngIf="spell" class="spell" (click)="toggleDetails()">
   <div class="spell-header">
     <h3>{{ spell.name }}</h3>
     <p>Lvl: {{ spell.level }}</p>

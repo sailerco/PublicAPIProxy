@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './api.service';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SpellComponent } from './spell/spell.component';
 import { SpellDetailComponent } from './spell-detail/spell-detail.component';
+import { DndResource} from './api-response';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +17,13 @@ import { SpellDetailComponent } from './spell-detail/spell-detail.component';
 export class AppComponent {
   title = 'dnd-api';
 
-  magicSchools: any[] = [];
+  magicSchools: DndResource[] = [];
   spellLevels: number[] = Array.from({ length: 10 }, (_, i) => i); // Spell levels from 0 to 9
-  classes: any[] = [];
-  spells: any[] = [];
-  displayedSpells: any[] = [];
+  classes: DndResource[] = [];
+  spells: DndResource[] = [];
+  displayedSpells: DndResource[] = [];
   spellsToShow = 10;
-  selectedSpell: any;
+  selectedSpell: DndResource | undefined;
   selectedSchool: string = '';
   selectedLevel: string = '';
   selectedClass: string = '';
@@ -55,7 +55,7 @@ export class AppComponent {
  * @param defaultLabel - The label for the default option (e.g., 'All Magic Schools')
  * @returns Array of options including the default label
  */
-  buildDropdownOptions(filter: any[], defaultLabel: string) {
+  buildDropdownOptions(filter: DndResource[], defaultLabel: string) {
     return [{ index: '', name: defaultLabel }, ...filter];
   }
 
