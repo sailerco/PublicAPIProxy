@@ -31,14 +31,14 @@ export class ApiService {
    * @param filters An object containing the filter criteria for fetching spells.
    * @returns An Observable containing the list of spells.
    */
-  getSpellList(filters: { school: string, level: string, class: string }): Observable<DndResourceResponse>{
+  getSpellList(filters: { school: string, level: string, class: string }): Observable<DndResourceResponse> {
     const params = new HttpParams()
-    .set('magicSchool', filters.school)
-    .set('level', filters.level)
-    .set('classType', filters.class);
+      .set('magicSchool', filters.school)
+      .set('level', filters.level)
+      .set('classType', filters.class);
     console.log("getting spell list")
     console.log(filters.school, filters.class, filters.level)
-    return this.http.get<DndResourceResponse>(this.apiURL + "spellList", {params})
+    return this.http.get<DndResourceResponse>(this.apiURL + "spellList", { params })
   }
   /**
    * Retrieves detailed information about a specific spell.

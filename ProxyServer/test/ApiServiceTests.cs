@@ -31,7 +31,7 @@ public class ApiServiceTests
 
         Assert.NotNull(result);
         Assert.Contains("abjuration", result);
-        
+
     }
 
     [Fact]

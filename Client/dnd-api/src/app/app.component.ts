@@ -5,7 +5,7 @@ import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SpellComponent } from './spell/spell.component';
 import { SpellDetailComponent } from './spell-detail/spell-detail.component';
-import { DndResource} from './api-response';
+import { DndResource } from './api-response';
 
 @Component({
   selector: 'app-root',
@@ -29,14 +29,14 @@ export class AppComponent {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.fetchInitalData();
+    this.fetchInitialData();
   }
 
   /**
    * Fetches the initial data for magic schools and classes from the API.
    * The data is used to populate dropdown menus in the form.
    */
-  fetchInitalData() {
+  fetchInitialData() {
     this.apiService.getMagicSchools().subscribe(response => {
       this.magicSchools = this.buildDropdownOptions(response.results, 'All Magic Schools');
     });
@@ -47,44 +47,21 @@ export class AppComponent {
   }
 
   /**
- * Builds an array of dropdown options with a default label at the top.
- * 
- * @param filter - Array of options retrieved from the API
- * @param defaultLabel - The label for the default option (e.g., 'All Magic Schools')
- * @returns Array of options including the default label
- */
+   * Builds an array of dropdown options with a default label at the top.
+   * 
+   * @param filter - Array of options retrieved from the API
+   * @param defaultLabel - The label for the default option (e.g., 'All Magic Schools')
+   * @returns Array of options including the default label
+   */
   buildDropdownOptions(filter: DndResource[], defaultLabel: string) {
     return [{ index: '', name: defaultLabel }, ...filter];
   }
 
   /**
- * Initializes the list of spells to be displayed based on the current filters.
- */
-  loadInitialSpells() {
-    this.displayedSpells = this.spells.slice(0, this.spellsToShow);
-    console.log(this.displayedSpells)
-  }
-
-  /**
-   * Loads more spells to be displayed by increasing the number of spells shown.
-   */
-  loadMoreSpells() {
-    const nextIndex = this.displayedSpells.length;
-    this.displayedSpells = this.spells.slice(0, nextIndex + this.spellsToShow);
-  }
-
-  /**
-   * Checks if there are more spells to load.
-   * @returns {boolean} - True if there are more spells to load, otherwise false.
-   */
-  hasMoreSpells(): boolean {
-    return this.displayedSpells.length < this.spells.length;
-  }
-
-  /**
    * Handles form submission, which filters the spell list based on selected criteria.
-   * It calls the `api.service.ts` which fetches the filtered list of spells from the backend and updates the displayed spells.
-   */
+   * It calls the `api.service.ts` which fetches the filtered list of spells from the backend
+   * and updates the displayed spells.
+   * */
   submitForm() {
     console.log("Form submitted");
 
@@ -99,7 +76,31 @@ export class AppComponent {
       this.spells = response.results;
       this.noSpellFound = this.spells.length === 0;
       if (!this.noSpellFound)
-        this.loadInitialSpells();
+        this.loadSpells();
     });
+  }
+
+  /**
+   * Initializes the list of spells to be displayed based on the current filters.
+   */
+  loadSpells() {
+    this.displayedSpells = this.spells.slice(0, this.spellsToShow);
+    console.log(this.displayedSpells)
+  }
+
+  /**
+   * Loads more spells to be displayed by increasing the number of spells shown.
+   */
+  loadNextSpells() {
+    const nextIndex = this.displayedSpells.length;
+    this.displayedSpells = this.spells.slice(0, nextIndex + this.spellsToShow);
+  }
+
+  /**
+   * Checks if there are more spells to load.
+   * @returns {boolean} - True if there are more spells to load, otherwise false.
+   */
+  hasMoreSpells(): boolean {
+    return this.displayedSpells.length < this.spells.length;
   }
 }

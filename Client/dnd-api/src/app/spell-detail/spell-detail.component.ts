@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { SpellDetailsResponse } from '../api-response';
 
 
 /**
@@ -17,5 +18,5 @@ import { Component, Input } from '@angular/core';
 })
 export class SpellDetailComponent {
   //The spell property is passed down from a parent component.
-  @Input() spell: any; 
+  @Input() spellDetails: SpellDetailsResponse | undefined;
 }

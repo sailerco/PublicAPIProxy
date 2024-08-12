@@ -1,8 +1,8 @@
-
 .spell-detail {
   padding: 15px 0px;
   flex: 1;
 }
+
 .casting-details {
   width: 100%;
   border: none;
@@ -15,7 +15,7 @@
 
 .material {
   color: gray;
-  font-size: x-small;
+  font-size: small;
   font-style: italic;
 }
 
@@ -26,22 +26,25 @@ h4 {
 p {
   margin: 10px 0;
 }
-.description, .higher_level{
+
+.description,
+.higher_level {
   text-wrap: pretty;
 }
 
 @media (max-width: 1200px) {
   .casting-details {
-      justify-content: space-around;
+    justify-content: space-around;
   }
 }
 
 @media (max-width: 768px) {
   .casting-details {
-      flex-flow: row wrap; /* Stack items vertically on small screens */
-      justify-content: space-evenly;
-    }
-  div.casting-details div{
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  div.casting-details div {
     flex: 1 0 33%;
     margin: 5px;
   }

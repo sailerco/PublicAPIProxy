@@ -12,11 +12,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.spell-header{
+.spell-header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
 }
+
 .spell-header h3 {
   margin: 0 0 10px;
 }

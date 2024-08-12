@@ -62,7 +62,7 @@ public class ApiService
         var spellListSchool = JsonConvert.DeserializeObject<SpellList>(spellsBySchool);
 
         var overlappingSpells = spellListClass.results
-            .Where(spell => spellListSchool.results.Any(spell2 => spell2.index == spell.index))
+            .Where(classSpell => spellListSchool.results.Any(schoolSpell => schoolSpell.index == classSpell.index))
             .ToList();
         var overlappingSpellList = new SpellList(overlappingSpells);
         return JsonConvert.SerializeObject(overlappingSpellList);

@@ -1,30 +1,30 @@
-<div class="spell-detail" *ngIf="spell">
+<div class="spell-detail" *ngIf="spellDetails">
     <div class="casting-details">
-        <div *ngIf=spell.range>
+        <div *ngIf=spellDetails.range>
             <h4>Range</h4>
-            <p>{{spell.range}}</p>
+            <p>{{spellDetails.range}}</p>
         </div>
-        <div *ngIf=spell.components>
+        <div *ngIf=spellDetails.components>
             <h4>Components</h4>
-            <p>{{spell.components}}</p>
+            <p>{{spellDetails.components}}</p>
         </div>
-        <div *ngIf=spell.school>
+        <div *ngIf=spellDetails.school>
             <h4>School</h4>
-            <p>{{spell.school.name}}</p>
+            <p>{{spellDetails.school.name}}</p>
         </div>
-        <div *ngIf=spell.casting_time>
+        <div *ngIf=spellDetails.casting_time>
             <h4>Casting Time</h4>
-            <p>{{spell.casting_time}}</p>
+            <p>{{spellDetails.casting_time}}</p>
         </div>
     </div>
     <hr>
-    <p class="description">{{ spell.desc }}</p>
+    <p class="description">{{ spellDetails.desc }}</p>
 
-    <p class="higher_level" *ngIf=spell.higher_level>
-        {{spell.higher_level}}
+    <p class="higher_level" *ngIf=spellDetails.higher_level>
+        {{spellDetails.higher_level}}
     </p>
 
-    <p class="material" *ngIf=spell.material>
-        Material: {{spell.material}}
+    <p class="material" *ngIf=spellDetails.material>
+        Material: {{spellDetails.material}}
     </p>
 </div>

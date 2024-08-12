@@ -31,7 +31,6 @@ select {
   border-radius: 4px;
 }
 
-/* Optional: Style the button */
 button {
   padding: 10px 15px;
   border: none;
@@ -48,7 +47,7 @@ button:hover {
 
 @media (max-width: 1200px) {
   form {
-      flex-flow: row nowrap;
+    flex-flow: row nowrap;
   }
 }
 
@@ -56,10 +55,16 @@ button:hover {
   form {
     flex-flow: column nowrap;
   }
-  .formElement{
-    width:auto;
+
+  .formElement {
+    width: auto;
   }
-  p{
+
+  p {
     text-wrap: pretty;
+  }
+
+  #generate {
+    padding: 10px;
   }
 }

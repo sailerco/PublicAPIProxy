@@ -3,7 +3,7 @@ export interface ApiResponse<T> {
     results: T[];
 }
 
-export interface DndResource{
+export interface DndResource {
     index: string;
     level?: string
     name: string;
@@ -11,15 +11,15 @@ export interface DndResource{
 }
 export type DndResourceResponse = ApiResponse<DndResource>;
 
-export interface SpellList{
+export interface SpellList {
     index: string;
-    level: string;
+    level?: string;
     name: string;
-    url: string;
+    url?: string;
 }
 export type SpellListResponse = ApiResponse<SpellList>;
 
-export interface SpellDetailsResponse{
+export interface SpellDetailsResponse {
     index?: string;
     level?: string;
     name?: string;
@@ -28,6 +28,7 @@ export interface SpellDetailsResponse{
     higher_level?: string[];
     range?: string;
     components?: string[];
+    material?: string;
     ritual?: string;
     duation?: string;
     concentration?: string;

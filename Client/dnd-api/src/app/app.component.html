@@ -30,7 +30,7 @@
     <div *ngFor="let spell of displayedSpells">
       <app-spell [spell]="spell"></app-spell>
     </div>
-    <button *ngIf="hasMoreSpells()" (click)="loadMoreSpells()">Display More Spells</button>
+    <button *ngIf="hasMoreSpells()" (click)="loadNextSpells()">Display More Spells</button>
   </div>
   <div id="noResult" *ngIf="noSpellFound">
     <h2>No results</h2>
