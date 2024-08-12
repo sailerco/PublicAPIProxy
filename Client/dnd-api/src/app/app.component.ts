@@ -15,8 +15,6 @@ import { DndResource} from './api-response';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'dnd-api';
-
   magicSchools: DndResource[] = [];
   spellLevels: number[] = Array.from({ length: 10 }, (_, i) => i); // Spell levels from 0 to 9
   classes: DndResource[] = [];

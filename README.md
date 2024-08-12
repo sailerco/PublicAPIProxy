@@ -1,5 +1,5 @@
 # PublicAPIProxy
-The backend and frontend are located in the same repository but in separate folders. In 'Client' is the frontend located, and in 'ProxyServer' the backend/C# Proxy. The markdown in these projects present the structure of the respective project.
+The backend and frontend are located in the same repository but in separate folders. In `Client` is the frontend located, and in `ProxyServer` the backend/C# Proxy. The markdown in these projects present the structure of the respective project.
 
 
 (For better workflow, I opened both folders separate IDE windows.)
